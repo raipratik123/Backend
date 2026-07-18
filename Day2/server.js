@@ -9,4 +9,6 @@ app.get('/about',(req,res)=>{
 app.get('/about/:id',(req,res)=>{
     res.send("Hello jii")
 })
-app.listen(3000)//server start karna  
+app.listen(3000 ,()=>{
+    console.log("Server is runing")
+})//server start karna  

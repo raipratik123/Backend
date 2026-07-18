@@ -1,0 +1,25 @@
+const express=require('express')
+const app=express()
+app.use(express.json())
+const notes=[]
+app.post('/notes',(req,res)=>{
+notes.push(req.body);
+res.status(201).json(
+    {message:'Note added successfully',}
+)
+})
+app.get('/notes',(req,res)=>{
+    res.status(200).json(notes)
+})
+app.delete('/notes/:id',(req,res)=>{
+    const id=req.params.id;
+    notes.splice(id,1);
+    // delete notes[req.params.id]
+res.status(204).json({message:'Note deleted successfully'})
+})
+app.patch('/notes/:id',(req,res)=>{
+    const id=req.params.id;
+    notes[id].description=req.body.description;
+    res.status(200).json({message:'Note updated successfully'})
+})
+module.exports=app
