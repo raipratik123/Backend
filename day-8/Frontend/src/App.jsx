@@ -15,7 +15,7 @@
       },[])
       function handleSubmit(e){
         e.preventDefault()
-        const { title, description } = e.target.elements
+        const { title, description } = e.target.elements    
         axios.post('http://localhost:3000/notes',{
           title:title.value,
           description:description.value
@@ -72,7 +72,7 @@
                   if (updatedDescription !== null && updatedDescription !== "") {
                     handlePatch(note._id, updatedDescription)
                   }
-                }}>Edit</button>
+                }}>Update</button>
               </div>
             ))
           ) : (
